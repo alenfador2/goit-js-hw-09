@@ -34,15 +34,13 @@ function createPromise(position, delay) {
       if (shouldResolve) {
         resolve({
           position,
-          delay,
-          result: 'Success! Value passed to resolve function',
+          delay
         });
         // Fulfill
       } else {
         reject({
           position,
-          delay,
-          result: 'Error! Error passed to reject function',
+          delay
         });
         // Reject
       }
