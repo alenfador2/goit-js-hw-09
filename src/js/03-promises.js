@@ -11,22 +11,20 @@ form.addEventListener('submit', event => {
   const stepVal = parseInt(step.value);
   const amountVal = parseInt(amount.value);
   for (i = 0; i < amountVal; i++) {
-    if (i !== undefined) {
-      const sumDelay = delayVal + stepVal * i;
-      createPromise(i, sumDelay)
-        .then(({ position, delay }) => {
-          Notiflix.Notify.success(
-            `✅ Fulfilled promise ${position} in ${delay}ms`
-          );
-          console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
-        })
-        .catch(({ position, delay }) => {
-          Notiflix.Notify.failure(
-            `❌ Rejected promise ${position} in ${delay}ms`
-          );
-          console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-        });
-    }
+    const sumDelay = delayVal + stepVal * i;
+    createPromise(i, sumDelay)
+      .then(({ position, delay }) => {
+        Notiflix.Notify.success(
+          `✅ Fulfilled promise ${position} in ${delay}ms`
+        );
+        console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+      })
+      .catch(({ position, delay }) => {
+        Notiflix.Notify.failure(
+          `❌ Rejected promise ${position} in ${delay}ms`
+        );
+        console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+      });
   }
 });
 function createPromise(position, delay) {
