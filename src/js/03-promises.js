@@ -10,7 +10,7 @@ form.addEventListener('submit', event => {
   const delayVal = parseInt(delay.value);
   const stepVal = parseInt(step.value);
   const amountVal = parseInt(amount.value);
-  for (i = 0; i < amount; i++) {
+  for (i = 0; i < amountVal; i++) {
     const sumDelay = delayVal + stepVal * i;
     createPromise(i, sumDelay)
       .then(({ position, delay }) => {
